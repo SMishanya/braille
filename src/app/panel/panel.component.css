@@ -1,0 +1,28 @@
+.container{
+    margin: 10px auto;
+    width: 98%;
+}
+
+#panel{
+    border: 1px dashed gray;
+    margin-bottom: 5px;
+}
+
+#langSelect{
+    display: inline-block;
+    float: right;
+}
+
+#langSelect>select{
+    display: inline-block;
+    width: 150px;
+}
+
+#translation-panel{
+    margin: 10px 1%;
+    background-color: #f7f7f7;
+}
+
+.translation{
+    margin: 3px 5px;
+}

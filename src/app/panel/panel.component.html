@@ -1,0 +1,24 @@
+<div id="translation-panel">
+  <p class="translation" *ngFor="let lan of languages">
+    {{translationsService.getLanguageName(lan)}}: {{getBrailleTranslation()}}
+  </p>
+</div>
+<div class="container">
+  <div class="row" id="panel">
+    <div *ngFor="let pane of panes; let id = index">
+      <braille-pane [paneId]="id" (click)="onPaneClicked(id)" [letter]="pane.letter"></braille-pane>
+    </div>
+  </div>
+  <div class="row" id="addPane">
+    <div>
+      <button class="btn btn-success" (click)="addPane()">{{translationsService.getTranslation('add')}}</button>
+      <button class="btn btn-danger" (click)="clearPanel()">{{translationsService.getTranslation('clear')}}</button>
+      <div id="langSelect">
+        <label for="langSelect">{{translationsService.getTranslation('selectLanguage')}}</label>
+        <select class="form-control" (click)="onValueChanged($event.path[0].value)"> 
+          <option *ngFor="let lan of supportedLanguages" [value]="lan">{{translationsService.getLanguageName(lan)}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
