@@ -109,7 +109,7 @@ export class TranslationsService {
 
   getBrailleTranslation(lang: string, letter: string, previousElement: string){
     if(letter == '010111') return '';
-    let result = this.brailleDictionary[lang];
+    let isCapital = false;
     if(previousElement != null){
       switch(previousElement){
         case '010111':
@@ -119,12 +119,15 @@ export class TranslationsService {
           if(number === undefined)
             return '�';
           return number;
+        case '000001':
+          isCapital = true;
       }
     }
+    let result = this.brailleDictionary[lang];
     if(result != undefined)
       result = result[letter];
     if(result != undefined)
-      return result;
+      return isCapital?result.toUpperCase():result;
     else return '�';
   }
 }
