@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Rx';
 
 import { TranslationsService } from '../translations.service';
 import { LanguagesService } from '../languages.service';
@@ -12,16 +14,80 @@ import { PaneComponent } from '../pane/pane.component';
 export class PanelComponent implements OnInit {
   private languages: string[];
   private supportedLanguages: string[];
-  private listLanguages: string[];
-  private letters: { [a: string]: string };
+  private letters = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 1, 1],
+    [0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 1, 0, 1],
+    [0, 0, 0, 1, 1, 0],
+    [0, 0, 0, 1, 1, 1],
+    [0, 0, 1, 0, 0, 0],
+    [0, 0, 1, 0, 0, 1],
+    [0, 0, 1, 0, 1, 0],
+    [0, 0, 1, 0, 1, 1],
+    [0, 0, 1, 1, 0, 0],
+    [0, 0, 1, 1, 0, 1],
+    [0, 0, 1, 1, 1, 0],
+    [0, 0, 1, 1, 1, 1],
+    [0, 1, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 1],
+    [0, 1, 0, 0, 1, 0],
+    [0, 1, 0, 0, 1, 1],
+    [0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1],
+    [0, 1, 0, 1, 1, 0],
+    [0, 1, 0, 1, 1, 1],
+    [0, 1, 1, 0, 0, 0],
+    [0, 1, 1, 0, 0, 1],
+    [0, 1, 1, 0, 1, 0],
+    [0, 1, 1, 0, 1, 1],
+    [0, 1, 1, 1, 0, 0],
+    [0, 1, 1, 1, 0, 1],
+    [0, 1, 1, 1, 1, 0],
+    [0, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1, 0],
+    [1, 0, 0, 0, 1, 1],
+    [1, 0, 0, 1, 0, 0],
+    [1, 0, 0, 1, 0, 1],
+    [1, 0, 0, 1, 1, 0],
+    [1, 0, 0, 1, 1, 1],
+    [1, 0, 1, 0, 0, 0],
+    [1, 0, 1, 0, 0, 1],
+    [1, 0, 1, 0, 1, 0],
+    [1, 0, 1, 0, 1, 1],
+    [1, 0, 1, 1, 0, 0],
+    [1, 0, 1, 1, 0, 1],
+    [1, 0, 1, 1, 1, 0],
+    [1, 0, 1, 1, 1, 1],
+    [1, 1, 0, 0, 0, 0],
+    [1, 1, 0, 0, 0, 1],
+    [1, 1, 0, 0, 1, 0],
+    [1, 1, 0, 0, 1, 1],
+    [1, 1, 0, 1, 0, 0],
+    [1, 1, 0, 1, 0, 1],
+    [1, 1, 0, 1, 1, 0],
+    [1, 1, 0, 1, 1, 1],
+    [1, 1, 1, 0, 0, 0],
+    [1, 1, 1, 0, 0, 1],
+    [1, 1, 1, 0, 1, 0],
+    [1, 1, 1, 0, 1, 1],
+    [1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 0, 1],
+    [1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1]
+  ];
   private panes: PaneComponent[] = [
     new PaneComponent()
   ];
-  public aaa: string = "";
-  public aaa1: string = "1";
+
 
   constructor(public translationsService: TranslationsService,
-    private languagesService: LanguagesService) {
+    private languagesService: LanguagesService,
+    private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -33,10 +99,19 @@ export class PanelComponent implements OnInit {
     this.panes.push(new PaneComponent());
   }
 
+  copyShareLink() {
+    let salt: number[] = [];
+    this.panes.forEach(
+      (element) => { salt.push(parseInt(element.letter.join(''), 2)) }
+    );
+    return 'http://localhost:4200#' + salt.join();
+  }
+
   clearPanel() {
     //todo: add possibility to send text to the server
     this.panes = [new PaneComponent()];
   }
+
 
   onPaneClicked(paneId: number) {
     if (paneId == this.panes.length - 1) {
@@ -44,7 +119,7 @@ export class PanelComponent implements OnInit {
     }
   }
 
-  onValueChanged(selectedLang: any) {
+  onLanguageChanged(selectedLang: any) {
     if (selectedLang === 'en') {
       this.languagesService.languages.splice(1, 1);
     }
@@ -54,7 +129,6 @@ export class PanelComponent implements OnInit {
     else {
       this.languagesService.languages.push(selectedLang);
     }
-    console.log(this.panes);
   }
 
   getBrailleTranslation(lang: string): string {
@@ -66,29 +140,4 @@ export class PanelComponent implements OnInit {
     });
     return result;
   }
-
-  onValueChanged1(aaa: string){
-    let a = [0,0,0,0,0,0];
-    console.log(aaa);
-    if(aaa.indexOf('1') >=0){
-      a[0] = 1;
-    }
-    if(aaa.indexOf('2') >=0){
-      a[2] = 1;
-    }
-    if(aaa.indexOf('3') >=0){
-      a[4] = 1;
-    }
-    if(aaa.indexOf('4') >=0){
-      a[1] = 1;
-    }
-    if(aaa.indexOf('5') >=0){
-      a[3] = 1;
-    }
-    if(aaa.indexOf('6') >=0){
-      a[5] = 1;
-    }
-    this.aaa1 = a.join('');
-  }
-
 }

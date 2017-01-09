@@ -20,24 +20,32 @@ export class TranslationsService {
 
   constructor() {
     this.translations['en'] = {
+      'about': 'Braille is a tactile writing system used by people who are blind or visually impaired. On this page you can translate any sequence of characters. By default we translate into english language and language which is set in your browser settings (if supported).',
+      'note': 'Note: symbol \'«\' also can be interpreted as \'?\', \'»\' as \'by\' and  \'|\' is really \'(\' or  \')\'',
       'selectLanguage': 'Select language',
       'language': 'English',
       'add': 'Add',
+      'copyShareLink': 'Copy link to share',
       'clear': 'Clear'
     };
     this.translations['ru'] = {
+      'about': 'Шрифт Брайля — рельефно-точечный тактильный шрифт, предназначенный для письма и чтения незрячими и плохо видящими людьми. На данной странице у Вас есть возможность перевести для себя любую надпись, написанную этим шрифтом в шеститочечной системе. Для перевода достаточно ввести в дешифратор символы, которые Вас интересуют и в режиме реального времени они будут "переведены" на выбраный Вами язык. По умолчанию перевод происходит на английский и язык, определенный в настройках Вашего браузера.',
+      'note': 'Примечание: на самом деле, символ | означает символ \'(\', или \')\'',
       'selectLanguage': 'Выберите язык',
       'language': 'Русский',
       'add': 'Добавить',
+      'copyShareLink': 'Скопировать ссылку на перевод',
       'clear': 'Очистить'
     };
     this.translations['uk'] = {
+      'about': 'Шрифт Брайля — рельєфно-крапковий шрифт для написання і читання сліпими. На даній сторінці у Вас є можливість перекласти для себе будь-який напис, написаний цим шрифтом у шеститочковій системі. Для перекладу достатньо ввести послідовність символів, які Вас цікавлять та в режимі реального часу їх буде перекладено на обрану Вами мову. За замовчуванням переклад відбувається на англійську та мову, обрану у налаштуваннях браузера.',
+      'note': 'Примітка: насправді, символ | позначає символ \'(\', або \')\'',
       'selectLanguage': 'Оберіть мову',
       'language': 'Українська',
       'add': 'Додати',
+      'copyShareLink': 'Скопіювати посилання на переклад',
       'clear': 'Очистити'
     };
-
 
     this.brailleDictionary['en'] = {
       '000000': ' ',

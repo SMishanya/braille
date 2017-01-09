@@ -1,9 +1,10 @@
+<div id="about">{{translationsService.getTranslation('about')}}</div>
 <div id="translation-panel">
   <div id="translation" *ngFor="let lang of languages">
     <span id="languageName">{{translationsService.getLanguageName(lang)}}:</span> <span id="translationText">{{getBrailleTranslation(lang)}}</span>
   </div>
-
 </div>
+<div id="note">{{translationsService.getTranslation('note')}}</div>
 <div class="container">
   <div class="row" id="panel">
     <div *ngFor="let pane of panes; let id = index">
@@ -13,17 +14,14 @@
   <div class="row" id="addPane">
     <div>
       <button class="btn btn-success" (click)="addPane()">{{translationsService.getTranslation('add')}}</button>
+      <button class="btn btn-info" ngxClipboard [cbContent]="copyShareLink()">{{translationsService.getTranslation('copyShareLink')}}</button>
       <button class="btn btn-danger" (click)="clearPanel()">{{translationsService.getTranslation('clear')}}</button>
       <div id="langSelect">
         <label for="langSelect">{{translationsService.getTranslation('selectLanguage')}}</label>
-        <select class="form-control" (click)="onValueChanged($event.path[0].value)"> 
+        <select class="form-control" (change)="onLanguageChanged($event.path[0].value)"> 
           <option *ngFor="let lang of supportedLanguages" [value]="lang">{{translationsService.getLanguageName(lang)}}</option>
         </select>
       </div>
     </div>
   </div>
 </div>
-
-<!--todo: remove after development-->
-<input [value]="aaa" (change)="onValueChanged1($event.target.value)" type="text">
-<p>{{aaa1}}</p>

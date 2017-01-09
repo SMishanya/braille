@@ -10,11 +10,11 @@ export class PaneComponent implements OnInit {
 
   @Input() letter: number[] = [0, 0, 0, 0, 0, 0];
 
-  getLetter(): string{
+  getLetter(): string {
     return this.letter.join('');
   }
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
