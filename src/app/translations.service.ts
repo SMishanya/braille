@@ -6,16 +6,16 @@ export class TranslationsService {
   private translations: { [language: string]: ({ [key: string]: string })[] }[] = [];
   private brailleDictionary: { [language: string]: ({ [key: string]: string }[]) }[] = [];
   private numbers = {
-    '100000' : '1',
-    '101000' : '2',
-    '110000' : '3',
-    '110100' : '4',
-    '100100' : '5',
-    '111000' : '6',
-    '111100' : '7',
-    '101100' : '8',
-    '011000' : '9',
-    '011100' : '0'
+    '100000': '1',
+    '101000': '2',
+    '110000': '3',
+    '110100': '4',
+    '100100': '5',
+    '111000': '6',
+    '111100': '7',
+    '101100': '8',
+    '011000': '9',
+    '011100': '0'
   };
 
   constructor() {
@@ -67,7 +67,7 @@ export class TranslationsService {
       '110111': 'y',
       '100111': 'z',
       '011101': 'w',
-      
+
       '111011': 'and',
       '111111': 'for',
       '101111': 'of',
@@ -98,7 +98,7 @@ export class TranslationsService {
       '001111': '|' //it is really ( or )
     };
 
-        this.brailleDictionary['uk'] = {
+    this.brailleDictionary['uk'] = {
       '000000': ' ',
       '100000': 'а',
       '101000': 'б',
@@ -147,6 +147,60 @@ export class TranslationsService {
       '000010': '\'',
       '001111': '|' //it is really ( or )
     };
+
+    this.brailleDictionary['ru'] = {
+      '000000': ' ',
+      '100000': 'а',
+      '101000': 'б',
+      '011101': 'в',
+      '111100': 'г',
+      '110100': 'д',
+      '100100': 'е',
+      '100001': 'ё',
+      '011100': 'ж',
+      '100111': 'з',
+      '011000': 'и',
+      '110111': 'і',
+      '110101': 'ї',
+      '111011': 'й',
+      '100010': 'к',
+      '101010': 'л',
+      '110010': 'м',
+      '110110': 'н',
+      '100110': 'о',
+      '111010': 'п',
+      '101110': 'р',
+      '011010': 'с',
+      '011110': 'т',
+      '100011': 'у',
+      '111000': 'ф',
+      '101100': 'х',
+      '110000': 'ц',
+      '111110': 'ч',
+      '100101': 'ш',
+      '110011': 'щ',
+      '101111': 'ъ',
+      '011011': 'ы',
+      '011111': 'ь',
+      '011001': 'э',
+      '101101': 'ю',
+      '111001': 'я',
+      '001101': '.',
+      '001000': ',',
+      '001001': '?',
+      '001010': ';',
+      '001100': ':',
+      '001110': '!',
+      '001011': '«',
+      '000111': '»',
+      '000011': '-',
+      '010010': '/',
+      '010001': '.',
+      '000010': '\'',
+      '101001': '(',
+      '010110': ')',
+      '001111': '|' //it is really ( or )
+    };
   }
 
   getTranslation(key: string): string {
@@ -157,16 +211,17 @@ export class TranslationsService {
     return this.translations[lang]['language'];
   }
 
-  getBrailleTranslation(lang: string, letter: string, previousElement: string){
-    if(letter == '010111') return '';
+  getBrailleTranslation(lang: string, letter: string, previousElement: string) {
+    if (letter == '010111' || letter == '000001')
+      return '';
     let isCapital = false;
-    if(previousElement != null){
-      switch(previousElement){
+    if (previousElement != null) {
+      switch (previousElement) {
         case '010111':
           console.log(this.numbers);
           console.log(letter);
           let number = this.numbers[letter];
-          if(number === undefined)
+          if (number === undefined)
             return '�';
           return number;
         case '000001':
@@ -174,10 +229,10 @@ export class TranslationsService {
       }
     }
     let result = this.brailleDictionary[lang];
-    if(result != undefined)
+    if (result != undefined)
       result = result[letter];
-    if(result != undefined)
-      return isCapital?result.toUpperCase():result;
+    if (result != undefined)
+      return isCapital ? result.toUpperCase() : result;
     else return '�';
   }
 }
