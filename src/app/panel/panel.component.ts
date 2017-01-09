@@ -59,8 +59,10 @@ export class PanelComponent implements OnInit {
 
   getBrailleTranslation(lang: string): string {
     let result: string = '';
+    let previousElement: string = null;
     this.panes.forEach(element => {
-      result += this.translationsService.getBrailleTranslation(lang, element.letter.join('').toString());
+      result += this.translationsService.getBrailleTranslation(lang, element.letter.join('').toString(), previousElement);
+      previousElement = element.letter.join('').toString();
     });
     return result;
   }

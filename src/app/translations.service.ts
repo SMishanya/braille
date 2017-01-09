@@ -5,6 +5,18 @@ export class TranslationsService {
 
   private translations: { [language: string]: ({ [key: string]: string })[] }[] = [];
   private brailleDictionary: { [language: string]: ({ [key: string]: string }[]) }[] = [];
+  private numbers = {
+    '100000' : '1',
+    '101000' : '2',
+    '110000' : '3',
+    '110100' : '4',
+    '100100' : '5',
+    '111000' : '6',
+    '111100' : '7',
+    '101100' : '8',
+    '011000' : '9',
+    '011100' : '0'
+  };
 
   constructor() {
     this.translations['en'] = {
@@ -55,22 +67,35 @@ export class TranslationsService {
       '110111': 'y',
       '100111': 'z',
       '011101': 'w',
+      
+      '111011': 'and',
+      '111111': 'for',
+      '101111': 'of',
+      '011011': 'the',
+      '011111': 'with',
+      '100001': 'ch',
+      '101001': 'gh',
+      '110001': 'sh',
+      '110101': 'th',
+      '100101': 'wh',
+      '111001': 'ed',
+      '111101': 'er',
+      '101101': 'ou',
+      '011001': 'ow',
+      '000110': 'in',
       '001101': '.',
       '001000': ',',
       '001001': '?',
       '001010': ';',
       '001100': ':',
       '001110': '!',
-      '001011': '«',
-      '000111': '»',
+      '001011': '«', //or ?
+      '000111': '»', //or 'by'
       '000011': '-',
       '010010': '/',
       '010001': '.',
       '000010': '\'',
-      '000110': '*',
-      '001111': '|',
-      '101001': '(',
-      '010110': ')'
+      '001111': '|' //it is really ( or )
     };
   }
 
@@ -82,12 +107,24 @@ export class TranslationsService {
     return this.translations[lang]['language'];
   }
 
-  getBrailleTranslation(lang: string, letter: string){
+  getBrailleTranslation(lang: string, letter: string, previousElement: string){
+    if(letter == '010111') return '';
     let result = this.brailleDictionary[lang];
+    if(previousElement != null){
+      switch(previousElement){
+        case '010111':
+          console.log(this.numbers);
+          console.log(letter);
+          let number = this.numbers[letter];
+          if(number === undefined)
+            return '�';
+          return number;
+      }
+    }
     if(result != undefined)
       result = result[letter];
     if(result != undefined)
       return result;
-    else return '?';
+    else return '�';
   }
 }
