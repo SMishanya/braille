@@ -17,6 +17,8 @@ export class PanelComponent implements OnInit {
   private panes: PaneComponent[] = [
     new PaneComponent()
   ];
+  public aaa: string = "";
+  public aaa1: string = "1";
 
   constructor(public translationsService: TranslationsService,
     private languagesService: LanguagesService) {
@@ -55,11 +57,36 @@ export class PanelComponent implements OnInit {
     console.log(this.panes);
   }
 
-  getBrailleTranslation(): string {
+  getBrailleTranslation(lang: string): string {
     let result: string = '';
     this.panes.forEach(element => {
-      result += this.translationsService.getBrailleTranslation('en', element.letter.join('').toString());
+      result += this.translationsService.getBrailleTranslation(lang, element.letter.join('').toString());
     });
     return result;
   }
+
+  onValueChanged1(aaa: string){
+    let a = [0,0,0,0,0,0];
+    console.log(aaa);
+    if(aaa.indexOf('1') >=0){
+      a[0] = 1;
+    }
+    if(aaa.indexOf('2') >=0){
+      a[2] = 1;
+    }
+    if(aaa.indexOf('3') >=0){
+      a[4] = 1;
+    }
+    if(aaa.indexOf('4') >=0){
+      a[1] = 1;
+    }
+    if(aaa.indexOf('5') >=0){
+      a[3] = 1;
+    }
+    if(aaa.indexOf('6') >=0){
+      a[5] = 1;
+    }
+    this.aaa1 = a.join('');
+  }
+
 }
