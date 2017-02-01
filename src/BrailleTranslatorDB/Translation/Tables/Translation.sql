@@ -1,0 +1,6 @@
+﻿CREATE TABLE [tra].[Translation]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Value] NVARCHAR(MAX) NOT NULL,
+	[ViewCount] INT NOT NULL DEFAULT 0
+)
