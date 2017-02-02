@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BrailleTranslator", "src\AspNetCoreAngular2\BrailleTranslator.xproj", "{CFB2D074-A06E-4FCC-9DE0-07AF37915480}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BrailleTranslatorDB", "src\BrailleTranslatorDB\BrailleTranslatorDB.sqlproj", "{614F1A83-5EF5-49FB-ABBF-6F2429227A03}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BrailleTranslator", "src\BrailleTranslator\BrailleTranslator.xproj", "{CFB2D074-A06E-4FCC-9DE0-07AF37915480}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{614F1A83-5EF5-49FB-ABBF-6F2429227A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{614F1A83-5EF5-49FB-ABBF-6F2429227A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{614F1A83-5EF5-49FB-ABBF-6F2429227A03}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{614F1A83-5EF5-49FB-ABBF-6F2429227A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{614F1A83-5EF5-49FB-ABBF-6F2429227A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{614F1A83-5EF5-49FB-ABBF-6F2429227A03}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{CFB2D074-A06E-4FCC-9DE0-07AF37915480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CFB2D074-A06E-4FCC-9DE0-07AF37915480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFB2D074-A06E-4FCC-9DE0-07AF37915480}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +35,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{614F1A83-5EF5-49FB-ABBF-6F2429227A03} = {E4A22F5E-F645-461A-96ED-5E8C4FE0C114}
 		{CFB2D074-A06E-4FCC-9DE0-07AF37915480} = {E4A22F5E-F645-461A-96ED-5E8C4FE0C114}
 	EndGlobalSection
 EndGlobal

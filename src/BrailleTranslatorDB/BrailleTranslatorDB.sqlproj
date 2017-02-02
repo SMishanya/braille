@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{614f1a83-5ef5-49fb-abbf-6f2429227a03}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -81,9 +81,6 @@
     <None Include="Dictionary\PostDeployment\01.DictionaryCode.sql" />
     <None Include="Dictionary\PostDeployment\02.Dictionary.sql" />
     <None Include="Common\PostDeployment\01.Language.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="BrailleTranslatorDB.refactorlog" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />

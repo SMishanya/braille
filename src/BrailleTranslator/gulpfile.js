@@ -1,6 +1,5 @@
 ﻿var gulp        = require("gulp");
 var path        = require("path");
-var sass        = require("gulp-sass");
 var ts          = require("gulp-typescript");
 var sourcemaps  = require("gulp-sourcemaps");
 var tslint      = require("gulp-tslint");
@@ -8,7 +7,7 @@ var del         = require('del');
 var Builder     = require('systemjs-builder');
 
 var scriptsPath = "Angular2/**/*.ts";
-var sassPath = "Angular2/**/*.scss";
+var cssPath = "Angular2/**/*.css";
 var imagesPath = "Angular2/**/*.{jpg,gif,png,svg}";
 var templatesPath = "Angular2/**/*.html";
 var destPath = "wwwroot/";
@@ -46,9 +45,8 @@ gulp.task("tslint", function() {
         }));
 });
 
-gulp.task("sass", function () {
-    gulp.src(sassPath)
-      .pipe(sass().on("error", sass.logError))
+gulp.task("css", function () {
+	gulp.src(cssPath)
       .pipe(gulp.dest(destPath));
 });
 
@@ -93,7 +91,7 @@ gulp.task('bundle', function() {
 
 gulp.task("build", ['clean'], function() {
     gulp.start("static files");
-    gulp.start("sass");
+    gulp.start("css");
     gulp.start("typescript");
     gulp.start("templates");
     gulp.start("images");
@@ -102,17 +100,15 @@ gulp.task("build", ['clean'], function() {
 });
 
 gulp.task("watch", ['clean', 'build'], function () {
-    gulp.watch(sassPath, ["sass"]);
+    gulp.watch(cssPath, ["css"]);
     gulp.watch(scriptsPath, ["typescript", "tslint"]);
     gulp.watch(templatesPath, ["templates"]);
     gulp.watch(imagesPath, ["images"]);
 });
 
 gulp.task("default", function () {
-    // place code for your default task here
-
     gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css")
         .pipe(gulp.dest(destPath + "css/"));
-    gulp.src("./node_modules/bootstrap/dist/js/bootstrap.js")
-        .pipe(gulp.dest(destPath + "js/")); 
+	gulp.src("./node_modules/bootstrap/dist/js/bootstrap.js")
+        .pipe(gulp.dest(destPath + "js/"));
 });
