@@ -6,9 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
+using AspNetCoreAngular2.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace BrailleTranslator {
 	public class Startup {
+
+		public Startup(IHostingEnvironment env) {
+			var builder = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+			Configuration = builder.Build();
+		}
+
+		public IConfigurationRoot Configuration { get; }
+
 		public void ConfigureServices(IServiceCollection services) {
 			services.AddMvc()
 				.AddMvcOptions(options => {
@@ -17,6 +30,11 @@ namespace BrailleTranslator {
 						Duration = 0
 					});
 				});
+
+			var aaa = Configuration["ConnectionStrings:DefaultConnection"];
+			services.AddDbContext<ApplicationDbContext>(
+				options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])
+			);
 		}
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {

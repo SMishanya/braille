@@ -68,6 +68,7 @@
     <Folder Include="Dictionary\Tables" />
     <Folder Include="Dictionary\PostDeployment" />
     <Folder Include="Common\PostDeployment" />
+    <Folder Include="Translation\TestData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Translation\Tables\Translation.sql" />
@@ -87,5 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BrailleTranslatorDB.publish.xml" />
+    <None Include="Translation\TestData\TestData.sql" />
   </ItemGroup>
 </Project>

@@ -22,7 +22,8 @@ export class TranslationsListComponent {
         this.translationsService
             .getTranslations()
             .subscribe(data => {
-                this.translations = data;
+                console.log(data.json());
+                this.translations = data.json(); 
             });
     }
 }

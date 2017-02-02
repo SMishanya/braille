@@ -1,9 +1,12 @@
 import { Injectable } from "@angular/core";
+import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs/Rx";
 import { TranslationModel } from "./translation.model";
 
 @Injectable()
 export class TranslationsService {
+
+    constructor(private http: Http) { }
 
     translations: TranslationModel[] = [
         new TranslationModel(0, "Translation 0"),
@@ -13,8 +16,10 @@ export class TranslationsService {
         new TranslationModel(4, "Translation 4"),
     ];
 
-    getTranslations(): Observable<TranslationModel[]> {
-        return Observable.of(this.translations);
+    getTranslations() {
+        return this.http.get(`/api/translations`);
+
+        //return this.translations;
     }
 
     getTranslation(id: number): Observable<TranslationModel> {

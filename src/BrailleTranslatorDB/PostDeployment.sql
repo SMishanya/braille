@@ -13,3 +13,4 @@ Post-Deployment Script Template
 :r .\Common\PostDeployment\01.Language.sql
 :r .\Dictionary\PostDeployment\01.DictionaryCode.sql
 :r .\Dictionary\PostDeployment\02.Dictionary.sql
+:r .\Translation\TestData\TestData.sql
