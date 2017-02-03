@@ -1,4 +1,5 @@
-﻿var gulp        = require("gulp");
+/// <binding BeforeBuild='build' Clean='build' />
+var gulp        = require("gulp");
 var path        = require("path");
 var ts          = require("gulp-typescript");
 var sourcemaps  = require("gulp-sourcemaps");
