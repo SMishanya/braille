@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 
 @Component({
-    selector: "my-nav",
+    selector: "braille-navigation",
     template: `
         <a routerLink="/translations">Saved translations</a>|
         <a routerLink="/translator">Translator</a>

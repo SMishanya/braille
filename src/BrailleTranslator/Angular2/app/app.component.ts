@@ -3,8 +3,10 @@ import { Component } from "@angular/core";
 @Component({
     selector: "app",
     template: `
-        <my-nav></my-nav>
+        <nav></nav>
         <router-outlet></router-outlet>
+        <braille-footer></braille-footer>
+
     `
 })
 export class AppComponent { }
