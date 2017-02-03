@@ -1,51 +1,65 @@
-﻿.container{
+﻿.container {
     margin: 10px auto;
     width: 98%;
 }
 
-#panel{
+#panel {
     border: 1px dashed gray;
     margin-bottom: 5px;
 }
 
-#langSelect{
-    display: inline-block;
-    float: right;
+
+@media (max-width: 555px) {
+    #langSelect {
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    #addPane{
+        text-align: center;
+    }
 }
 
-#langSelect>select{
+@media (min-width: 556px) {
+    #langSelect {
+        display: inline-block;
+        float: right;
+    }
+}
+
+#langSelect > select {
     display: inline-block;
     width: 150px;
 }
 
-#translation-panel{
+#translation-panel {
     margin: 10px 1%;
     background-color: #f7f7f7;
     overflow-x: scroll;
 }
 
-#translation{
+#translation {
     margin: 3px 5px;
     white-space: nowrap;
 }
 
-#languageName{
+#languageName {
     display: inline-block;
     width: 90px;
     text-align: right;
 }
 
-#translationText{
+#translationText {
     display: inline-block;
     font-family: monospace;
 }
 
-#about{
+#about {
     margin: 5px 1%;
     text-align: justify;
 }
 
-#note{
+#note {
     color: gray;
     margin-left: 1%;
 }

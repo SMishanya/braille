@@ -1,4 +1,5 @@
-﻿<div id="about">{{translationsService.getTranslation('about')}}</div>
+﻿<h2>{{translationsService.getTranslation('title')}}</h2>
+<div id="about">{{translationsService.getTranslation('about')}}</div>
 <div id="translation-panel">
     <div id="translation" *ngFor="let lang of languages">
         <span id="languageName">{{translationsService.getLanguageName(lang)}}:</span> <span id="translationText">{{getBrailleTranslation(lang)}}</span>
@@ -25,8 +26,3 @@
         </div>
     </div>
 </div>
-
-<i class="fa-facebook" style="height: 50px; width: 50px;"></i>
-<i class="fa-fa" style="height: 50px; width: 50px;"></i>
-<i class="fa-envelope-o" style="height: 50px; width: 50px;"></i>
-<i class="fa-fax" style="height: 50px; width: 50px;"></i>

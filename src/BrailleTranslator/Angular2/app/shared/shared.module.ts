@@ -1,12 +1,12 @@
-import {NgModule} from "@angular/core";
-import {NavComponent} from "./nav.component";
-import {BrailleFooterComponent} from "./braille-footer.component";
-import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
+import { NgModule } from "@angular/core";
+import { BrailleNavigationComponent } from "./braille-navigation.component";
+import { BrailleFooterComponent } from "./braille-footer.component";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
-    declarations: [NavComponent, BrailleFooterComponent],
+    declarations: [BrailleNavigationComponent, BrailleFooterComponent],
     imports: [CommonModule, RouterModule],
-    exports: [CommonModule, NavComponent, BrailleFooterComponent]
+    exports: [CommonModule, BrailleNavigationComponent, BrailleFooterComponent]
 })
-export class SharedModule {}
+export class SharedModule { }
