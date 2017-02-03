@@ -108,8 +108,12 @@ gulp.task("watch", ['clean', 'build'], function () {
 });
 
 gulp.task("default", function () {
-    gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css")
+	gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css")
         .pipe(gulp.dest(destPath + "css/"));
+	gulp.src("./node_modules/font-awesome/css/*")
+        .pipe(gulp.dest(destPath + "css/font-awesome/styles"));
+	gulp.src("./node_modules/font-awesome/fonts/*")
+        .pipe(gulp.dest(destPath + "css/font-awesome/fonts"));
 	gulp.src("./node_modules/bootstrap/dist/js/bootstrap.js")
         .pipe(gulp.dest(destPath + "js/"));
 });
