@@ -31,9 +31,8 @@ namespace BrailleTranslator {
 					});
 				});
 
-			var aaa = Configuration["ConnectionStrings:DefaultConnection"];
 			services.AddDbContext<ApplicationDbContext>(
-				options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])
+				options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
 			);
 		}
 

@@ -1,9 +1,11 @@
 export class TranslationModel {
-    id: number;
-    name: string;
+	id: number;
+	value: string;
+	viewCount: number;
 
-    constructor(id: number, name: string) {
-        this.id = id;
-        this.name = name;
-    }
+	constructor(id: number, value: string, viewCount: number) {
+		this.id = id;
+		this.value = value;
+		this.viewCount = viewCount;
+	}
 }

@@ -1,6 +1,8 @@
 ﻿using BrailleTranslator.Entities;
+using BrailleTranslator.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BrailleTranslator.Controllers {
 	public class ApiController : Controller {
@@ -13,21 +15,23 @@ namespace BrailleTranslator.Controllers {
 
 		[HttpGet]
 		[Route("/api/translations")]
-		public JsonResult Translations(string name) {
-
-			DbSet<Translation> list = context.Set<Translation>();
-
-			TranslationModel[] list1 = {
-				new TranslationModel { id = 1, name = "{ letters: [010101], [000000], [111111] }"},
-				new TranslationModel { id = 2, name = "{ letters: [011101], [100010], [110101] }" }
-			};
-			return Json(list1);
+		public JsonResult Translations() {
+			List<Translation> translations = new List<Translation>();
+			translations = context.Translations.ToList();
+			return Json(translations);
 		}
 
+		[HttpGet]
+		[Route("/api/dictionary")]
+		public JsonResult Dictionary(string language) {
 
-		public class TranslationModel {
-			public int id { get; set; }
-			public string name { get; set; }
+
+			Dictionary<string, DictionaryVM> list = new Dictionary<string, DictionaryVM>();
+			list = context.Dictionaries.ToList()
+				.Where(x => x.LanguageId == 2).Select(x => new DictionaryVM { Key = x.Value , Value = x.Value }).ToDictionary(x=>x.Key);
+
+			return Json(list);
 		}
+
 	}
 }
