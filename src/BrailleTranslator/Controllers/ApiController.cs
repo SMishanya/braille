@@ -1,7 +1,6 @@
-﻿using AspNetCoreAngular2.Entities;
+﻿using BrailleTranslator.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace BrailleTranslator.Controllers {
 	public class ApiController : Controller {

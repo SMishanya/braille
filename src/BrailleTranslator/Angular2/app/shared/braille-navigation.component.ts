@@ -10,9 +10,9 @@ import { Component } from "@angular/core";
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"> </span>
+                <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="#">Braille translator</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -20,7 +20,7 @@ import { Component } from "@angular/core";
                 <li><a routerLink="/translator">Translator</a></li>
               </ul>
             </div><!--/.nav-collapse -->
-          </div>
+          </div> 
         </nav>`,
     styles: [`
         nav{

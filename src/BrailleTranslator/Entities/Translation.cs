@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-namespace AspNetCoreAngular2.Entities
+namespace BrailleTranslator.Entities
 {
 	public class Translation {
 		public int Id { get; set; }

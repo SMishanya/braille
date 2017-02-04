@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace AspNetCoreAngular2.Entities {
+namespace BrailleTranslator.Entities {
 	public class ApplicationDbContext : DbContext {
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
 

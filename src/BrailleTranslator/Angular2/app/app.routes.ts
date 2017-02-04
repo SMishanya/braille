@@ -1,9 +1,9 @@
-import {Routes, RouterModule} from "@angular/router";
-import {ModuleWithProviders} from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { ModuleWithProviders } from "@angular/core";
 
-const appRoutes: Routes  = [
-    { path: "", redirectTo: "translator", pathMatch: "full" },
-    { path: "translations", loadChildren: "app/translations/translations.module#TranslationsModule"  }
+const appRoutes: Routes = [
+	{ path: "", redirectTo: "translator", pathMatch: "full" },
+	{ path: "translations", loadChildren: "app/translations/translations.module#TranslationsModule" }
 ];
 
-export const routing: ModuleWithProviders  = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });

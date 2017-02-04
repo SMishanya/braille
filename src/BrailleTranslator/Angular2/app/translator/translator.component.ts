@@ -2,8 +2,8 @@
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
-import { TranslationsService } from './services/translations.service';
-import { LanguagesService } from './services/languages.service';
+import { TranslationsService } from '../shared/services/translations.service';
+import { LanguagesService } from '../shared/services/languages.service';
 import { PaneComponent } from './pane/pane.component';
 
 @Component({

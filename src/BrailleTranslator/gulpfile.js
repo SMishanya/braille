@@ -108,10 +108,32 @@ gulp.task("watch", ['clean', 'build'], function () {
 });
 
 gulp.task("default", function () {
+	gulp.src("./node_modules/font-awesome/**")
+        .pipe(gulp.dest(destPath + "css/font-awesome"));
 	gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css")
         .pipe(gulp.dest(destPath + "css/"));
+	
+	gulp.src("./node_modules/@angular/**")
+        .pipe(gulp.dest(destPath + "js/@angular"));
 	gulp.src("./node_modules/bootstrap/dist/js/bootstrap.js")
         .pipe(gulp.dest(destPath + "js/"));
-    gulp.src("./Angular2/styles/core.css")
+	gulp.src("./node_modules/rxjs/**")
+        .pipe(gulp.dest(destPath + "js/rxjs"));
+	gulp.src("./node_modules/clipboard/dist/**")
+        .pipe(gulp.dest(destPath + "js/clipboard/dist"));
+	gulp.src("./node_modules/zone.js/**")
+        .pipe(gulp.dest(destPath + "js/zone.js"));
+	gulp.src("./node_modules/reflect-metadata/**")
+        .pipe(gulp.dest(destPath + "js/reflect-metadata"));
+	gulp.src("./node_modules/systemjs/dist/**")
+        .pipe(gulp.dest(destPath + "js/systemjs/dist"));
+	gulp.src("./node_modules/core-js/**")
+        .pipe(gulp.dest(destPath + "js/core-js"));
+
+	
+
+    gulp.src("./Angular2/styles/*")
         .pipe(gulp.dest(destPath + "css/"));
+    gulp.src("./Angular2/js/*")
+        .pipe(gulp.dest(destPath + "js/"));
 });
