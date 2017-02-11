@@ -8,6 +8,7 @@
 			<a href="https://www.linkedin.com/in/mykhailo-smereka"><i class="fa fa-linkedin"></i></a>
 			<a href="https://www.facebook.com/kasparov.mike"><i class="fa fa-facebook"></i></a>
 			<a href="https://vk.com/m_smereka"><i class="fa fa-vk"></i></a>
+			<a href="mailto:admin@algoholic.in.ua" title="admin@algoholic.in.ua"><i class="fa fa-envelope"></i></a>
 		</footer>
 	`
 })

@@ -26,10 +26,6 @@ export class TranslatorComponent implements OnInit {
 	}
 
 	ngOnInit() {
-
-		while (!this.translationsService.isReady) {
-		}
-
 		this.supportedLanguages = this.languagesService.supportedLanguages;
 		this.languages = this.languagesService.languages;
 	}

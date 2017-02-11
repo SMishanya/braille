@@ -24,13 +24,24 @@ namespace BrailleTranslator.Controllers {
 		[HttpGet]
 		[Route("/api/dictionary")]
 		public JsonResult Dictionary(string language) {
+			int languageId;
+			switch (language) {
+				case "uk":
+					languageId = 2;
+					break;
+				case "ru":
+					languageId = 3;
+					break;
+				default:
+					languageId = 1;
+				break;
+			}
 
-
-			Dictionary<string, DictionaryVM> list = new Dictionary<string, DictionaryVM>();
-			list = context.Dictionaries.ToList()
-				.Where(x => x.LanguageId == 2).Select(x => new DictionaryVM { Key = x.Value , Value = x.Value }).ToDictionary(x=>x.Key);
-
-			return Json(list);
+			Dictionary<string, string> resultList = new Dictionary<string, string>();
+			var tempList = context.DictionaryCodes
+				.Select(x => new { Key = x.Value, x.Dictionaries.First(a=>a.LanguageId == languageId).Value });
+			tempList.ToList().ForEach(x => resultList.Add(x.Key, x.Value));
+			return Json(resultList);
 		}
 
 	}

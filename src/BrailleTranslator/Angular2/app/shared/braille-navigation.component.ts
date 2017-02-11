@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { TranslationsService } from './services/translations.service';
 
 @Component({
     selector: "braille-navigation",
@@ -12,12 +13,12 @@ import { Component } from "@angular/core";
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Braille translator</a>
+              <a class="navbar-brand" href="#">{{translationsService.getTranslation('TranslatorTitle')}}</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a routerLink="/translations">Saved translations</a></li>
-                <li><a routerLink="/translator">Translator</a></li>
+                <li><a routerLink="/translations">{{translationsService.getTranslation('TranslationsTitle')}}</a></li>
+                <li><a routerLink="/translator">{{translationsService.getTranslation('TranslatorTitle')}}</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div> 
@@ -29,5 +30,5 @@ import { Component } from "@angular/core";
     `]
 })
 export class BrailleNavigationComponent {
-
+	constructor(public translationsService: TranslationsService) { }
 }

@@ -14,7 +14,7 @@ h2{
 }
 
 
-@media (min-width: 573px) {
+@media (min-width: 624px) {
     body {
         position: relative;
         margin: 0;
@@ -25,32 +25,35 @@ h2{
     }
 }
 
-@media (max-width: 573px) {
+@media (max-width: 624px) {
     body {
         position: relative;
         margin: 0;
-        padding-bottom: 350px;
+        padding-bottom: 250px;
         padding-top: 50px;
         min-height: 100%;
         font-family: "Helvetica Neue", Arial, sans-serif;
     }
 }
 
-@media (max-width: 293px) {
-    i.fa {
-        font-size: 200%;
-        color: white;
-        margin: 50px;
+@media (max-width: 372px) {
+    body {
+        position: relative;
+        margin: 0;
+        padding-bottom: 360px;
+        padding-top: 50px;
+        min-height: 100%;
+        font-family: "Helvetica Neue", Arial, sans-serif;
     }
 }
 
-@media (min-width: 293px) {
-    i.fa {
-        font-size: 300%;
-        color: white;
-        margin: 50px;
-    }
+
+i.fa {
+    font-size: 150%;
+    color: white;
+    margin: 50px;
 }
+
 
 
 footer {

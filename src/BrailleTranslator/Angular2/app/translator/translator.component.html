@@ -1,11 +1,11 @@
-﻿<h2>{{translationsService.getTranslation('title')}}</h2>
-<div id="about">{{translationsService.getTranslation('about')}}</div>
+﻿<h2>{{translationsService.getTranslation('TranslatorTitle')}}</h2>
+<div id="about">{{translationsService.getTranslation('TranslatorAbout')}}</div>
 <div id="translation-panel">
     <div id="translation" *ngFor="let lang of languages">
         <span id="languageName">{{translationsService.getLanguageName(lang)}}:</span> <span id="translationText">{{getBrailleTranslation(lang)}}</span>
     </div>
 </div>
-<div id="note">{{translationsService.getTranslation('note')}}</div>
+<div id="note">{{translationsService.getTranslation('TranslatorNote')}}</div>
 <div class="container">
     <div class="row" id="panel">
         <div *ngFor="let pane of panes; let id = index">
@@ -14,11 +14,11 @@
     </div>
     <div class="row" id="addPane">
         <div>
-            <button class="btn btn-success" (click)="addPane()">{{translationsService.getTranslation('add')}}</button>
-            <button class="btn btn-info" ngxClipboard [cbContent]="copyShareLink()">{{translationsService.getTranslation('copyShareLink')}}</button>
-            <button class="btn btn-danger" (click)="clearPanel()">{{translationsService.getTranslation('clear')}}</button>
+            <button class="btn btn-success" (click)="addPane()">{{translationsService.getTranslation('TranslatorAdd')}}</button>
+            <button class="btn btn-info" ngxClipboard [cbContent]="copyShareLink()">{{translationsService.getTranslation('TranslatorCopyShareLink')}}</button>
+            <button class="btn btn-danger" (click)="clearPanel()">{{translationsService.getTranslation('TranslatorClear')}}</button>
             <div id="langSelect">
-                <label for="langSelect">{{translationsService.getTranslation('selectLanguage')}}</label>
+                <label for="langSelect">{{translationsService.getTranslation('TranslatorSelectLanguage')}}</label>
                 <select class="form-control" (change)="onLanguageChanged($event.path[0].value)">
                     <option *ngFor="let lang of supportedLanguages" [value]="lang">{{translationsService.getLanguageName(lang)}}</option>
                 </select>

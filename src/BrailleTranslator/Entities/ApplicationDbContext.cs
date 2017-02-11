@@ -15,11 +15,18 @@ namespace BrailleTranslator.Entities {
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
 			modelBuilder.Entity<Translation>().ToTable("Translation", "tra");
+			modelBuilder.Entity<DictionaryCode>().ToTable("DictionaryCode", "dict");
+
 			modelBuilder.Entity<Dictionary>().ToTable("Dictionary", "dict");
+			modelBuilder.Entity<Dictionary>()
+					.HasOne(d => d.DictionaryCode)
+					.WithMany(s => s.Dictionaries);
 		}
 
 		public DbSet<Translation> Translations { get; set; }
+		public DbSet<DictionaryCode> DictionaryCodes { get; set; }
 		public DbSet<Dictionary> Dictionaries { get; set; }
 	}
 }

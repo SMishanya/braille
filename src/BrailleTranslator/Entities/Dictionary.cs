@@ -6,5 +6,7 @@ namespace BrailleTranslator.Entities {
 		public int DictionaryCodeId { get; set; }
 		public int LanguageId { get; set; }
 		public string Value { get; set; }
+
+		public virtual DictionaryCode DictionaryCode { get; set; }
 	}
 }

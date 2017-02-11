@@ -7,7 +7,7 @@ export class TranslationsService {
 	userLanguage: string = 'en';
 	isReady: boolean = false;
 
-	private translations: { [language: string]: ({ [key: string]: string })[] }[] = [];
+	private translations: { [key: string]: string } = {};
 	private brailleDictionary: { [language: string]: ({ [key: string]: string }[]) }[] = [];
 	private numbers = {
 		'100000': '1',
@@ -23,36 +23,7 @@ export class TranslationsService {
 	};
 
 	constructor(private http: Http) {
-		this.translations['en'] = {
-			'title': 'Braille translator',
-			'about': 'Braille is a tactile writing system used by people who are blind or visually impaired. On this page you can translate any sequence of characters. By default we translate into english language and language which is set in your browser settings (if supported).',
-			'note': 'Note: symbol \'«\' also can be interpreted as \'?\', \'»\' as \'by\' and  \'|\' is really \'(\' or  \')\'',
-			'selectLanguage': 'Select language',
-			'language': 'English',
-			'add': 'Add',
-			'copyShareLink': 'Copy link to share',
-			'clear': 'Clear'
-		};
-		this.translations['ru'] = {
-			'title': 'Переводчик брайля',
-			'about': 'Шрифт Брайля — рельефно-точечный тактильный шрифт, предназначенный для письма и чтения незрячими и плохо видящими людьми. На данной странице у Вас есть возможность перевести для себя любую надпись, написанную этим шрифтом в шеститочечной системе. Для перевода достаточно ввести в дешифратор символы, которые Вас интересуют и в режиме реального времени они будут "переведены" на выбраный Вами язык. По умолчанию перевод происходит на английский и язык, определенный в настройках Вашего браузера.',
-			'note': 'Примечание: на самом деле, символ | означает символ \'(\', или \')\'',
-			'selectLanguage': 'Выберите язык',
-			'language': 'Русский',
-			'add': 'Добавить',
-			'copyShareLink': 'Скопировать ссылку на перевод',
-			'clear': 'Очистить'
-		};
-		this.translations['uk'] = {
-			'title': 'Перекладач брайля',
-			'about': 'Шрифт Брайля — рельєфно-крапковий шрифт для написання і читання сліпими. На даній сторінці у Вас є можливість перекласти для себе будь-який напис, написаний цим шрифтом у шеститочковій системі. Для перекладу достатньо ввести послідовність символів, які Вас цікавлять та в режимі реального часу їх буде перекладено на обрану Вами мову. За замовчуванням переклад відбувається на англійську та мову, обрану у налаштуваннях браузера.',
-			'note': 'Примітка: насправді, символ | позначає символ \'(\', або \')\'',
-			'selectLanguage': 'Оберіть мову',
-			'language': 'Українська',
-			'add': 'Додати',
-			'copyShareLink': 'Скопіювати посилання на переклад',
-			'clear': 'Очистити'
-		};
+		this.translations = {};
 
 		this.brailleDictionary['en'] = {
 			'000000': ' ',
@@ -219,11 +190,11 @@ export class TranslationsService {
 	}
 
 	getTranslation(key: string): string {
-		return this.translations[this.userLanguage][key];
+		return this.translations[key];
 	}
 
 	getLanguageName(lang: string): string {
-		return this.translations[lang]['language'];
+		return this.translations['Language' + lang];
 	}
 
 	getBrailleTranslation(lang: string, letter: string, previousElement: string) {
@@ -253,9 +224,7 @@ export class TranslationsService {
 		this.userLanguage = language;
 		this.http.get(`/api/dictionary?language=` + language).subscribe(data => {
 			this.isReady = true;
-			//this.translations[language] = data.json();
-			//console.log(data.json());
-
+			this.translations = data.json();
 		});
 	}
 }
