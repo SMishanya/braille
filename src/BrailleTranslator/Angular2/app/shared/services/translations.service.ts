@@ -5,7 +5,6 @@ import { Http } from "@angular/http";
 export class TranslationsService {
 
 	userLanguage: string = 'en';
-	isReady: boolean = false;
 
 	private translations: { [key: string]: string } = {};
 	private brailleDictionary: { [language: string]: ({ [key: string]: string }[]) }[] = [];
@@ -223,7 +222,6 @@ export class TranslationsService {
 	public setLanguage(language: string) {
 		this.userLanguage = language;
 		this.http.get(`/api/dictionary?language=` + language).subscribe(data => {
-			this.isReady = true;
 			this.translations = data.json();
 		});
 	}

@@ -4,6 +4,10 @@ import { TranslationsService } from './translations.service';
 
 @Injectable()
 export class LanguagesService {
+	public readonly interfaceLanguages: string[] = [
+		'en', 'ru', 'uk'
+	];
+
 	public readonly supportedLanguages: string[] = [
 		'en', 'ru', 'uk'
 	];
