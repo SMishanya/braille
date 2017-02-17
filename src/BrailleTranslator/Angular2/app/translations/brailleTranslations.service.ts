@@ -4,7 +4,7 @@ import { Observable } from "rxjs/Rx";
 import { TranslationModel } from "./translation.model";
 
 @Injectable()
-export class TranslationsService {
+export class BrailleTranslationsService {
 
 	constructor(private http: Http) { }
 

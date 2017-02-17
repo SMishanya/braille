@@ -19,6 +19,7 @@
 	--Translations list page
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (11, 'TranslationsTitle');
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (12, 'TranslationsViewCount');
+	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (13, 'Translation');
 
 	--Translations detail page
 	

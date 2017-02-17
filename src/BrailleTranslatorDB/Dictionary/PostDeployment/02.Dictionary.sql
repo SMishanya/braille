@@ -39,11 +39,14 @@
 	--Translations list page
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (11, 1, N'Saved translations');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (12, 1, N'View count');
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (13, 1, N'Translation');
 
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (11, 2, N'Збережені переклади');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (12, 2, N'Кількість переглядів');
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (13, 2, N'Переклад');
 
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (11, 3, N'Сохраненные переводы');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (12, 3, N'Количество просмотров');
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (13, 3, N'Перевод');
 
 	--Translations detail page
