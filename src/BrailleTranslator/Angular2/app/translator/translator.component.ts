@@ -1,6 +1,8 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
+import { Http, Headers } from "@angular/http";
+import Clipboard from 'clipboard';
 
 import { TranslationsService } from '../shared/services/translations.service';
 import { LanguagesService } from '../shared/services/languages.service';
@@ -12,6 +14,7 @@ import { PaneComponent } from './pane/pane.component';
 	styleUrls: ['./app/translator/translator.component.css']
 })
 export class TranslatorComponent implements OnInit {
+	private urlToCopy: string = 'Default string';
 	private languages: string[];
 	private supportedLanguages: string[];
 
@@ -22,7 +25,9 @@ export class TranslatorComponent implements OnInit {
 
 	constructor(public translationsService: TranslationsService,
 		private languagesService: LanguagesService,
-		private activatedRoute: ActivatedRoute) {
+		private activatedRoute: ActivatedRoute,
+		private http: Http,
+		private elmRef: ElementRef) {
 	}
 
 	ngOnInit() {
@@ -35,12 +40,16 @@ export class TranslatorComponent implements OnInit {
 	}
 
 	copyShareLink() {
-		let salt: number[] = [];
-		return 'http://localhost:4200#' + salt.join();
+		const body = JSON.stringify(this.panes);
+		const headers: Headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		this.http.post(`/api/saveTranslation`, body, { headers: headers }).subscribe(data => {
+			this.urlToCopy = data.text();
+			console.log(this.urlToCopy);
+		});
 	}
 
 	clearPanel() {
-		//todo: add possibility to send text to the server
 		this.panes = [new PaneComponent()];
 	}
 

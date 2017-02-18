@@ -7,5 +7,4 @@ export { Clipboard, ClipboardDirective } from './clipboard.directive';
     exports: [ClipboardDirective]
 })
 export class ClipboardModule {
-    // static forRoot(): ModuleWithProviders { return { ngModule: ClipboardModule, providers: [] }; }
 }

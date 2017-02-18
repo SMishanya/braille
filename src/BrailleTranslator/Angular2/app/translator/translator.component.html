@@ -15,7 +15,7 @@
     <div class="row" id="addPane">
         <div>
             <button class="btn btn-success" (click)="addPane()">{{translationsService.getTranslation('TranslatorAdd')}}</button>
-            <button class="btn btn-info" ngxClipboard [cbContent]="copyShareLink()">{{translationsService.getTranslation('TranslatorCopyShareLink')}}</button>
+            <button class="btn btn-info" (click)="copyShareLink()" ngxClipboard [cbContent]="urlToCopy">{{translationsService.getTranslation('TranslatorCopyShareLink')}}</button>
             <button class="btn btn-danger" (click)="clearPanel()">{{translationsService.getTranslation('TranslatorClear')}}</button>
             <div id="langSelect">
                 <label for="langSelect">{{translationsService.getTranslation('TranslatorSelectLanguage')}}</label>

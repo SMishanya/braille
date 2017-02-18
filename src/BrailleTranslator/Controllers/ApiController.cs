@@ -44,5 +44,14 @@ namespace BrailleTranslator.Controllers {
 			return Json(resultList);
 		}
 
+		[HttpPost]
+		[Route("/api/saveTranslation")]
+		public JsonResult SaveTranslation([FromBody] dynamic body) {
+
+			List<Translation> translations = new List<Translation>();
+			translations = context.Translations.ToList();
+			return Json("OK ALLOOOOOOO");
+		}
+
 	}
 }
