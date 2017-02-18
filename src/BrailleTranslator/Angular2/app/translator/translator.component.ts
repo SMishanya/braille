@@ -41,18 +41,21 @@ export class TranslatorComponent implements OnInit {
 	}
 
 	share() {
-		const body = JSON.stringify(this.panes);
+		this.link = this.translationsService.getTranslation('PleaseWaitForAWhile') + '...';
+		const body = {
+			Letters: this.panes.map(x=>x.letter),
+			LanguageIds: [1,2,3]
+		}
 		const headers: Headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		this.http.post(`/api/saveTranslation`, body, { headers: headers }).subscribe(data => {
-			this.link = data.text();
+			this.link = 'http://localhost:51822/#/translations/' + data.text();
 		});
 	}
 
 	clearPanel() {
 		this.panes = [new PaneComponent()];
 	}
-
 
 	onPaneClicked(paneId: number) {
 		if (paneId == this.panes.length - 1) {

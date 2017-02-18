@@ -6,8 +6,8 @@ import { ActivatedRoute } from "@angular/router";
 
 @Component({
 	template: `
-        <h3>{{translationsService.getTranslation('Translation')}} &#8470;{{translation.id}}</h3>
-        <div id="translationsCount">{{translationsService.getTranslation('TranslationsViewCount')}}: {{translation.viewCount}}</div>
+		<h3>{{translationsService.getTranslation('Translation')}} &#8470;{{translation?.id}}</h3>
+		<div id="translationsCount">{{translationsService.getTranslation('TranslationsViewCount')}}: {{translation?.viewCount}}</div>
     `,
 	styles: [`
 		#translationsCount{
@@ -17,7 +17,7 @@ import { ActivatedRoute } from "@angular/router";
 			font-size: 12px;
 		}
 	`]
-}) 
+})
 export class TranslationDetailsComponent {
 
 	constructor(
@@ -33,7 +33,7 @@ export class TranslationDetailsComponent {
 		let id = parseInt(this.route.snapshot.params["id"], 10);
 		this.brailleTranslations
 			.getTranslation(id)
-			.subscribe(data => this.translation = data);
+			.subscribe(data => { this.translation = data.json();});
 	}
 
 }

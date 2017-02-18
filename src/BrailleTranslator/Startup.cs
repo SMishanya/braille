@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using BrailleTranslator.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using AutoMapper;
 
 namespace BrailleTranslator {
 	public class Startup {
@@ -30,10 +31,10 @@ namespace BrailleTranslator {
 						Duration = 0
 					});
 				});
-
 			services.AddDbContext<ApplicationDbContext>(
 				options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
 			);
+			services.AddAutoMapper();
 		}
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {

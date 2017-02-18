@@ -10,6 +10,6 @@ export class RowColorDirective implements OnInit{
 	}
 
 	ngOnInit(){
-		this.renderer.setElementStyle(this.elementRef.nativeElement, 'background-color', this.rowId % 2 == 1 ? '#e5e5e5' : '#f7f7f7');
+		this.renderer.setElementStyle(this.elementRef.nativeElement, 'background-color', this.rowId % 2 == 1 ? '#d5d5d5' : '#f7f7f7');
 	}
 }

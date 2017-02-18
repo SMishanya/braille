@@ -75,7 +75,7 @@
     <Build Include="Translation\Security\tra.sql" />
     <Build Include="Common\Security\cmn.sql" />
     <Build Include="Common\Tables\Language.sql" />
-    <Build Include="Translation\Tables\TranslationLanguages.sql" />
+    <Build Include="Translation\Tables\TranslationLanguage.sql" />
     <Build Include="Dictionary\Security\dict.sql" />
     <Build Include="Dictionary\Tables\DictionaryCode.sql" />
     <Build Include="Dictionary\Tables\Dictionary.sql" />

@@ -27,4 +27,4 @@
     </div>
 </div>
 <!-- popup with saved translation link -->
-<braille-popup [headerText]="translationsService.getTranslation('TranslatorCopyShareLink')" [on]="popupToggle" (popupClosed)="popupToggle=false">{{link}}</braille-popup>
+<braille-popup [headerText]="translationsService.getTranslation('TranslatorCopyShareLink')" [on]="popupToggle" (popupClosed)="popupToggle=false"><a href="{{link}}">{{link}}</a></braille-popup>

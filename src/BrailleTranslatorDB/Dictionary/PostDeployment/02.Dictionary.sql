@@ -1,4 +1,12 @@
-﻿	--Languages
+﻿	--Common
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (14, 1, N'Please, wait for a while');
+
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (14, 2, N'Будь ласка, зачекайте хвильку');
+
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (14, 3, N'Пожалуйста, немного подождите');
+
+	
+	--Languages
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (1, 1, N'English');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (2, 1, N'Ukrainian');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (3, 1, N'Russian');	

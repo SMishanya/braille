@@ -1,6 +1,6 @@
 ﻿SET IDENTITY_INSERT [dict].[DictionaryCode] ON
-
-
+	--Common
+	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (14, 'PleaseWaitForAWhile');
 
 	--Languages
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (1, 'Languageen');
