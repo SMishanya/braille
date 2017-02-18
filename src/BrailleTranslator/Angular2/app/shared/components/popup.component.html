@@ -1,0 +1,12 @@
+﻿<div id="popup" [@animation]="on" *ngIf="on">
+	<div id="background" (click)="close()"></div>
+	<div class="popup-in">
+		<div id="header" class="padding-10">
+			{{headerText}}
+			<span id="closePopup" (click)="close()">X</span>
+		</div>
+		<div>
+			<div class="padding-10"><ng-content></ng-content></div>
+		</div>
+	</div>
+</div>

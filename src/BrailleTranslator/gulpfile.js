@@ -7,10 +7,10 @@ var tslint      = require("gulp-tslint");
 var del         = require('del');
 var Builder     = require('systemjs-builder');
 
-var scriptsPath = "Angular2/**/*.ts";
-var cssPath = "Angular2/**/*.css";
-var imagesPath = "Angular2/**/*.{jpg,gif,png,svg}";
-var templatesPath = "Angular2/**/*.html";
+var scriptsPath = "Angular2/**/**.ts";
+var cssPath = "Angular2/**/**.css";
+var imagesPath = "Angular2/**/**.{jpg,gif,png,svg}";
+var templatesPath = "Angular2/**/**.html";
 var destPath = "wwwroot/";
 
 gulp.task('clean', function () {

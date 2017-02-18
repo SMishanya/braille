@@ -1,11 +1,11 @@
-﻿import { Component, OnInit, ElementRef } from '@angular/core';
+﻿import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { Http, Headers } from "@angular/http";
-import Clipboard from 'clipboard';
 
 import { TranslationsService } from '../shared/services/translations.service';
 import { LanguagesService } from '../shared/services/languages.service';
+import { PopupComponent } from '../shared/components/popup.component';
 import { PaneComponent } from './pane/pane.component';
 
 @Component({
@@ -14,9 +14,10 @@ import { PaneComponent } from './pane/pane.component';
 	styleUrls: ['./app/translator/translator.component.css']
 })
 export class TranslatorComponent implements OnInit {
-	private urlToCopy: string = 'Default string';
+	private link: string;
 	private languages: string[];
 	private supportedLanguages: string[];
+	@Input() private popupToggle: boolean = false;
 
 	private panes: PaneComponent[] = [
 		new PaneComponent()
@@ -39,13 +40,12 @@ export class TranslatorComponent implements OnInit {
 		this.panes.push(new PaneComponent());
 	}
 
-	copyShareLink() {
+	share() {
 		const body = JSON.stringify(this.panes);
 		const headers: Headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		this.http.post(`/api/saveTranslation`, body, { headers: headers }).subscribe(data => {
-			this.urlToCopy = data.text();
-			console.log(this.urlToCopy);
+			this.link = data.text();
 		});
 	}
 
