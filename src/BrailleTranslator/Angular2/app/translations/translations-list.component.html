@@ -1,0 +1,16 @@
+﻿<table>
+	<thead>
+		<tr>
+			<td width="5%">&#8470;</td>
+			<td width="85%">{{translationsService.getTranslation('Translation')}}</td>
+			<td width="10%">{{translationsService.getTranslation('TranslationsViewCount')}}</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let translation of translations; let rowNumber = index" rowColor [rowId]="rowNumber">
+			<td width="5%">{{translation.id}}.</td>
+			<td width="85%"><a [routerLink]="translation.id">{{getBrailleTranslation(translation, 'en')}}</a></td>
+			<td width="10%">{{translation.viewCount}}</td>
+		</tr>
+	</tbody>
+</table>

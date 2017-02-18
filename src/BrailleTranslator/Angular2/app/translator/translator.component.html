@@ -14,9 +14,9 @@
     </div>
     <div class="row" id="addPane">
         <div>
-            <button class="btn btn-success" (click)="addPane()">{{translationsService.getTranslation('TranslatorAdd')}}</button>
-            <button class="btn btn-info" (click)="share(); popupToggle = !popupToggle">{{translationsService.getTranslation('TranslatorCopyShareLink')}}</button>
-            <button class="btn btn-danger" (click)="clearPanel()">{{translationsService.getTranslation('TranslatorClear')}}</button>
+            <button class="btn btn-success" (click)="addPane()"><i class="fa fa-plus"></i> {{translationsService.getTranslation('TranslatorAdd')}}</button>
+            <button class="btn btn-info" (click)="share(); popupToggle = !popupToggle"><i class="fa fa-save"></i> {{translationsService.getTranslation('TranslatorCopyShareLink')}}</button>
+            <button class="btn btn-danger" (click)="clearPanel()"><i class="fa fa-close"></i> {{translationsService.getTranslation('TranslatorClear')}}</button>
             <div id="langSelect">
                 <label for="langSelect">{{translationsService.getTranslation('TranslatorSelectLanguage')}}</label>
                 <select class="form-control" (change)="onLanguageChanged($event.path[0].value)">

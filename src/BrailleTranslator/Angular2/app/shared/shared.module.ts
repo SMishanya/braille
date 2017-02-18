@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
-import { BrailleNavigationComponent } from "./braille-navigation.component";
-import { BrailleFooterComponent } from "./braille-footer.component";
+import { BrailleNavigationComponent } from "./components/braille-navigation.component";
+import { BrailleFooterComponent } from "./components/braille-footer.component";
 import { PopupComponent } from './components/popup.component';
 import { CommonModule } from "@angular/common";
 import { RouterModule, ActivatedRoute } from "@angular/router";

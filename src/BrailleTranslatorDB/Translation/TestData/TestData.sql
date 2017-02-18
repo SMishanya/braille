@@ -1,5 +1,5 @@
 ﻿SET IDENTITY_INSERT [tra].[Translation] ON
-	INSERT INTO [tra].[Translation] ([Id], [Value]) VALUES (1, N'[[1,1,0,0,0,0],[1,0,0,0,0,0],[0,0,0,0,0,0]]');
+	INSERT INTO [tra].[Translation] ([Id], [Value]) VALUES (1, N'[[0,0,0,0,0,1],[1,0,0,0,0,0],[1,0,1,0,1,0],[1,1,1,1,0,0],[1,0,0,1,1,0],[1,0,1,1,0,0],[1,0,0,1,1,0],[1,0,1,0,1,0],[0,1,1,0,0,0],[1,1,0,0,0,0]');
 	INSERT INTO [tra].[Translation] ([Id], [Value]) VALUES (2, N'[[1,1,0,0,0,0],[1,0,0,0,0,0],[0,0,0,0,0,0]]');
 	INSERT INTO [tra].[Translation] ([Id], [Value]) VALUES (3, N'[[1,1,0,0,0,0],[1,0,0,0,0,0],[0,0,0,0,0,0]] ');
 	INSERT INTO [tra].[Translation] ([Id], [Value]) VALUES (4, N'[[1,1,0,0,0,0],[1,0,0,0,0,0],[0,0,0,0,0,0]] ');
