@@ -1,0 +1,46 @@
+﻿#dropdown{
+	width: 200px;
+	margin-left: 1%;
+	display: block;
+}
+
+.resultView{
+	width: 200px;
+	height: 30px;
+	border: 1px solid black;
+	padding-left: 10px;
+	cursor: pointer;
+	border-radius: 3px;
+	line-height: 28px;  
+}
+
+.resultViewOpened{
+	width: 200px;
+	height: 30px;
+	border: 1px solid black;
+	padding-left: 10px;
+	cursor: pointer;
+	border-radius: 3px 3px 0 0;
+	line-height: 28px;  
+}
+
+#downIcon{
+	float: right;
+	display: inline-block;
+	margin: auto, 0;
+	background: black;
+	color: white;
+	width: 20px;
+	text-align: center;
+}
+
+#list{
+	border: 1px solid black;
+	margin-top: -1px;
+	border-radius: 0 0 3px 3px;
+}
+
+.listItem{
+	border-top: 1px solid #e5e5e5;
+	padding-left: 10px;
+}

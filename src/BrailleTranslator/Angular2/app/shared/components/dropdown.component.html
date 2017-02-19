@@ -1,0 +1,9 @@
+﻿<div id="dropdown">
+	<div [ngClass]="{'resultView': isCollapsed, 'resultViewOpened': !isCollapsed }" (click)="isCollapsed = !isCollapsed">
+		{{getResultView()}}
+		<div id="downIcon"><i class="fa fa-chevron-circle-down"></i></div>
+	</div>
+	<div id="list" *ngIf="!isCollapsed">
+		<div class="listItem" *ngFor="let row of items"><input type="checkbox" name="{{row.key}}" value="" />{{row.value}}</div>
+	</div>
+</div>

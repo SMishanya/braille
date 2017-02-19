@@ -6,6 +6,7 @@ import { Http, Headers } from "@angular/http";
 import { TranslationsService } from '../shared/services/translations.service';
 import { LanguagesService } from '../shared/services/languages.service';
 import { PopupComponent } from '../shared/components/popup.component';
+import { DropdownComponent } from '../shared/components/dropdown.component';
 import { PaneComponent } from './pane/pane.component';
 
 @Component({
