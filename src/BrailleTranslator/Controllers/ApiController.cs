@@ -31,19 +31,32 @@ namespace BrailleTranslator.Controllers {
 		[HttpGet]
 		[Route("/api/translation")]
 		public JsonResult Translation(int id) {
-			return Json(_context.Translations.Where(t => t.Id == id).First());
+			var translation = _context.Translations.Where(t => t.Id == id).First();
+			translation.ViewCount++;
+			_context.SaveChanges();
+			return Json(translation);
 		}
 
 		[HttpPost]
 		[Route("/api/saveTranslation")]
 		public JsonResult SaveTranslation([FromBody] TranslationItemVM body) {
 			var translation = _mapper.Map<Translation>(body);
+
+			//fast check of hashcodes to avoid full text equality checking
+			var translationsWithSameHashCode = _context.Translations.Where(t => t.HashCode == translation.HashCode).Select(x => x).ToList();
+			if (translationsWithSameHashCode.Count != 0) {
+				var existingTranslation = translationsWithSameHashCode.First(t => t.Value == translation.Value);
+				if (existingTranslation != null)
+					return Json(existingTranslation.Id);
+			}
+
 			translation.TranslationLanguages = new List<TranslationLanguage>();
 			foreach(int language in body.LanguageIds) {
 				translation.TranslationLanguages.Add(new TranslationLanguage {
 					LanguageId = language
 				});
 			}
+
 			_context.Set<Translation>().Add(translation);
 			_context.SaveChanges();
 			return Json(translation.Id);

@@ -13,7 +13,8 @@ namespace BrailleTranslator.Entities {
 
 			CreateMap<TranslationItemVM, Translation>()
 				.ForMember(dest => dest.Id, opt => opt.Ignore())
-				.ForMember(dest => dest.Value, opt => opt.MapFrom(src => JsonConvert.SerializeObject(src.Letters)));
+				.ForMember(dest => dest.Value, opt => opt.MapFrom(src => JsonConvert.SerializeObject(src.Letters)))
+				.ForMember(dest => dest.HashCode, opt => opt.MapFrom(src => src.GetHashCode()));
 		}
 	}
 }
