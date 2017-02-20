@@ -43,4 +43,36 @@
 .listItem{
 	border-top: 1px solid #e5e5e5;
 	padding-left: 10px;
+	cursor: pointer;
+}
+
+.listItem:hover{
+	background-color: #f5f5f5;
+}
+
+.checkbox{
+	width: 20px;
+	height: 20px;
+	border: 1px solid #e5e5e5;
+	margin: 10px 0;
+	display: inline-block;
+	float: left;
+}
+
+.checkbox:hover{
+	box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.checkbox:active{
+	border: 1px solid black;
+	box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.checked {
+	background-color: black;
+}
+
+.rowSign{
+	margin: 10px 5px;
+	display: inline-block;
 }
