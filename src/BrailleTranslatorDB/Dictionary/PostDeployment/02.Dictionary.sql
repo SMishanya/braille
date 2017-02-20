@@ -23,7 +23,7 @@
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (4, 1, N'Braille translator');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (5, 1, N'Braille is a tactile writing system used by people who are blind or visually impaired. On this page you can translate any sequence of characters. By default we translate into english language and language which is set in your browser settings (if supported).');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (6, 1, N'Note: symbol ''«'' also can be interpreted as ''?'', ''»'' as ''by'' and  ''|'' is really ''('' or  '')''');
-	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (7, 1, N'Select language');
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (7, 1, N'Select languages');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (8, 1, N'Add');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (9, 1, N'Copy link to share');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (10, 1, N'Clear');
@@ -31,7 +31,7 @@
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (4, 2, N'Перекладач брайля');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (5, 2, N'Шрифт Брайля — рельєфно-крапковий шрифт для написання і читання сліпими. На даній сторінці у Вас є можливість перекласти для себе будь-який напис, написаний цим шрифтом у шеститочковій системі. Для перекладу достатньо ввести послідовність символів, які Вас цікавлять та в режимі реального часу їх буде перекладено на обрану Вами мову. За замовчуванням переклад відбувається на англійську та мову, обрану у налаштуваннях браузера.');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (6, 2, N'Примітка: насправді, символ | позначає символ ''('', або '')''');
-	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (7, 2, N'Оберіть мову');
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (7, 2, N'Оберіть мови');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (8, 2, N'Додати');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (9, 2, N'Скопіювати посилання на переклад');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (10, 2, N'Очистити');
@@ -39,7 +39,7 @@
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (4, 3, N'Переводчик брайля');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (5, 3, N'Шрифт Брайля — рельефно-точечный тактильный шрифт, предназначенный для письма и чтения незрячими и плохо видящими людьми. На данной странице у Вас есть возможность перевести для себя любую надпись, написанную этим шрифтом в шеститочечной системе. Для перевода достаточно ввести в дешифратор символы, которые Вас интересуют и в режиме реального времени они будут "переведены" на выбраный Вами язык. По умолчанию перевод происходит на английский и язык, определенный в настройках Вашего браузера.');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (6, 3, N'Примечание: на самом деле, символ | означает символ ''('', или '')''');
-	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (7, 3, N'Выберите язык');
+	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (7, 3, N'Выберите языки');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (8, 3, N'Добавить');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (9, 3, N'Скопировать ссылку на перевод');
 	INSERT INTO [dict].[Dictionary] ([DictionaryCodeId], [LanguageId], [Value] ) VALUES (10, 3, N'Очистить');

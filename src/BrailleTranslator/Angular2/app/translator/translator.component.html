@@ -18,15 +18,12 @@
             <button class="btn btn-info" (click)="share(); popupToggle = !popupToggle"><i class="fa fa-save"></i> {{translationsService.getTranslation('TranslatorCopyShareLink')}}</button>
             <button class="btn btn-danger" (click)="clearPanel()"><i class="fa fa-close"></i> {{translationsService.getTranslation('TranslatorClear')}}</button>
             <div id="langSelect">
-                <label for="langSelect">{{translationsService.getTranslation('TranslatorSelectLanguage')}}</label>
-                <select class="form-control" (change)="onLanguageChanged($event.path[0].value)">
-                    <option *ngFor="let lang of supportedLanguages" [value]="lang">{{translationsService.getLanguageName(lang)}}</option>
-                </select>
+				<braille-dropdown [initialItems]="supportedLanguages" [placeholder]="'TranslatorSelectLanguages'" (checked)="initTraslationLanguages(list.checkedFields)" #list></braille-dropdown>
             </div>
         </div>
     </div>
 </div>
-<braille-dropdown></braille-dropdown>
+
 
 <!-- popup with saved translation link -->
 <braille-popup [headerText]="translationsService.getTranslation('TranslatorCopyShareLink')" [on]="popupToggle" (popupClosed)="popupToggle=false"><a href="{{link}}">{{link}}</a></braille-popup>

@@ -9,7 +9,7 @@
 }
 
 
-@media (max-width: 555px) {
+@media (max-width: 539px) {
     #langSelect {
         display: inline-block;
         margin-top: 20px;
@@ -20,7 +20,7 @@
     }
 }
 
-@media (min-width: 556px) {
+@media (min-width: 540px) {
     #langSelect {
         display: inline-block;
         float: right;

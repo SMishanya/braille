@@ -11,7 +11,7 @@
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (4, 'TranslatorTitle');
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (5, 'TranslatorAbout');
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (6, 'TranslatorNote');
-	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (7, 'TranslatorSelectLanguage');
+	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (7, 'TranslatorSelectLanguages');
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (8, 'TranslatorAdd');
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (9, 'TranslatorCopyShareLink');
 	INSERT INTO [dict].[DictionaryCode] ([Id], [Value]) VALUES (10, 'TranslatorClear');

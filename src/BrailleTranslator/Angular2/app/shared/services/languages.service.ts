@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 
 import { TranslationsService } from './translations.service';
+import { KeyValuePair } from '../models/KeyValuePair';
 
 @Injectable()
 export class LanguagesService {
@@ -8,8 +9,10 @@ export class LanguagesService {
 		'en', 'ru', 'uk'
 	];
 
-	public readonly supportedLanguages: string[] = [
-		'en', 'ru', 'uk'
+	public readonly supportedLanguages: KeyValuePair<number, string>[] = [
+		new KeyValuePair<number, string>(1, 'en'),
+		new KeyValuePair<number, string>(2, 'uk'),
+		new KeyValuePair<number, string>(3, 'ru')
 	];
 
 	public languages: string[] = [
@@ -17,7 +20,7 @@ export class LanguagesService {
 	];
 
 	constructor(private translationsService: TranslationsService) {
-		if (this.supportedLanguages.indexOf(navigator.language) >= 0 && this.languages.indexOf(navigator.language) < 0) {
+		if (this.supportedLanguages.map(sl => sl.value).indexOf(navigator.language) >= 0 && this.languages.indexOf(navigator.language) < 0) {
 			this.languages.push(navigator.language);
 		}
 		translationsService.setLanguage(navigator.language);

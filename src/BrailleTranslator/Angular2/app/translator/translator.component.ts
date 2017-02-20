@@ -8,6 +8,7 @@ import { LanguagesService } from '../shared/services/languages.service';
 import { PopupComponent } from '../shared/components/popup.component';
 import { DropdownComponent } from '../shared/components/dropdown.component';
 import { PaneComponent } from './pane/pane.component';
+import { KeyValuePair } from '../shared/models/KeyValuePair';
 
 @Component({
 	selector: 'braille-translator',
@@ -17,7 +18,8 @@ import { PaneComponent } from './pane/pane.component';
 export class TranslatorComponent implements OnInit {
 	private link: string;
 	private languages: string[];
-	private supportedLanguages: string[];
+	private supportedLanguages: KeyValuePair<number, string>[];
+
 	@Input() private popupToggle: boolean = false;
 
 	private panes: PaneComponent[] = [
@@ -32,9 +34,14 @@ export class TranslatorComponent implements OnInit {
 		private elmRef: ElementRef) {
 	}
 
+	initTraslationLanguages(input: number[]) {
+		this.languages = [];
+		input.forEach(i => this.languages.push(this.supportedLanguages[i-1].value));
+	}
+
 	ngOnInit() {
 		this.supportedLanguages = this.languagesService.supportedLanguages;
-		this.languages = this.languagesService.languages;
+		//this.languages = this.languagesService.languages;
 	}
 
 	addPane() {
