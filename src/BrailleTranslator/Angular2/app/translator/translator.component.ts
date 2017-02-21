@@ -17,7 +17,8 @@ import { KeyValuePair } from '../shared/models/KeyValuePair';
 })
 export class TranslatorComponent implements OnInit {
 	private link: string;
-	private languages: string[];
+	private selectedLanguageNames: string[];
+	private selectedLanguageIds: number[];
 	private supportedLanguages: KeyValuePair<number, string>[];
 
 	@Input() private popupToggle: boolean = false;
@@ -35,8 +36,13 @@ export class TranslatorComponent implements OnInit {
 	}
 
 	initTraslationLanguages(input: number[]) {
-		this.languages = [];
-		input.forEach(i => this.languages.push(this.supportedLanguages[i-1].value));
+		this.selectedLanguageNames = [];
+		this.selectedLanguageIds = [];
+		input.forEach(i => {
+			this.selectedLanguageNames.push(this.supportedLanguages[i - 1].value);
+			this.selectedLanguageIds.push(i);
+
+		});
 	}
 
 	ngOnInit() {
@@ -51,8 +57,8 @@ export class TranslatorComponent implements OnInit {
 	share() {
 		this.link = this.translationsService.getTranslation('PleaseWaitForAWhile') + '...';
 		const body = {
-			Letters: this.panes.map(x=>x.letter),
-			LanguageIds: [1,2,3]
+			Letters: this.panes.map(x => x.letter),
+			LanguageIds: this.selectedLanguageIds
 		}
 		const headers: Headers = new Headers();
 		headers.append('Content-Type', 'application/json');

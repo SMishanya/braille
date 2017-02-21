@@ -22,7 +22,7 @@ namespace BrailleTranslator.Controllers {
 		public JsonResult Translations() {
 			var translations = _context.Translations.Include(t => t.TranslationLanguages).ToList();
 			List<TranslationItemVM> translationsVM = new List<TranslationItemVM>();
-			foreach(var a in translations) {
+			foreach (var a in translations) {
 				translationsVM.Add(_mapper.Map<TranslationItemVM>(a));
 			}
 			return Json(translationsVM);
@@ -40,18 +40,31 @@ namespace BrailleTranslator.Controllers {
 		[HttpPost]
 		[Route("/api/saveTranslation")]
 		public JsonResult SaveTranslation([FromBody] TranslationItemVM body) {
+			if(body.LanguageIds == null || body.LanguageIds.Count == 0) {
+				return Json("Please, select at least one language before saving!");
+			}
 			var translation = _mapper.Map<Translation>(body);
 
 			//fast check of hashcodes to avoid full text equality checking
-			var translationsWithSameHashCode = _context.Translations.Where(t => t.HashCode == translation.HashCode).Select(x => x).ToList();
+			var translationsWithSameHashCode = _context.Translations.Where(t => t.HashCode == translation.HashCode).Include(t => t.TranslationLanguages).Select(x => x).ToList();
 			if (translationsWithSameHashCode.Count != 0) {
 				var existingTranslation = translationsWithSameHashCode.First(t => t.Value == translation.Value);
-				if (existingTranslation != null)
+				if (existingTranslation != null) {
+					var languageIds = _context.Set<TranslationLanguage>().Where(x => x.TranslationId == existingTranslation.Id);
+					foreach (int language in body.LanguageIds) {
+						var a = languageIds.Select(x=>x).Where(l => l.LanguageId == language).ToList();
+						if (a.Count == 0)
+							existingTranslation.TranslationLanguages.Add(new TranslationLanguage {
+								LanguageId = language
+							});
+					}
+					_context.SaveChanges();
 					return Json(existingTranslation.Id);
+				}
 			}
 
 			translation.TranslationLanguages = new List<TranslationLanguage>();
-			foreach(int language in body.LanguageIds) {
+			foreach (int language in body.LanguageIds) {
 				translation.TranslationLanguages.Add(new TranslationLanguage {
 					LanguageId = language
 				});
@@ -75,12 +88,12 @@ namespace BrailleTranslator.Controllers {
 					break;
 				default:
 					languageId = 1;
-				break;
+					break;
 			}
 
 			Dictionary<string, string> resultList = new Dictionary<string, string>();
 			var tempList = _context.DictionaryCodes
-				.Select(x => new { Key = x.Value, x.Dictionaries.First(a=>a.LanguageId == languageId).Value });
+				.Select(x => new { Key = x.Value, x.Dictionaries.First(a => a.LanguageId == languageId).Value });
 			tempList.ToList().ForEach(x => resultList.Add(x.Key, x.Value));
 			return Json(resultList);
 		}

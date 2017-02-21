@@ -1,7 +1,7 @@
 ﻿<h2>{{translationsService.getTranslation('TranslatorTitle')}}</h2>
 <div id="about">{{translationsService.getTranslation('TranslatorAbout')}}</div>
 <div id="translation-panel">
-    <div id="translation" *ngFor="let lang of languages">
+    <div id="translation" *ngFor="let lang of selectedLanguageNames">
         <span id="languageName">{{translationsService.getLanguageName(lang)}}:</span> <span id="translationText">{{getBrailleTranslation(lang)}}</span>
     </div>
 </div>
