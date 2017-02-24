@@ -47,7 +47,6 @@ export class TranslatorComponent implements OnInit {
 
 	ngOnInit() {
 		this.supportedLanguages = this.languagesService.supportedLanguages;
-		//this.languages = this.languagesService.languages;
 	}
 
 	addPane() {

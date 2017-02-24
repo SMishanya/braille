@@ -1,4 +1,10 @@
-﻿table {
+﻿#languageSelect{
+	margin-bottom: 10px;
+	margin-right: 1%;
+	float: right;
+}
+
+table {
 	width: 98%;
 	position: relative;
 	margin-left: 1%;

@@ -5,10 +5,9 @@ import { TranslationsListComponent } from "./translations-list.component";
 import { TranslationDetailsComponent } from "./translation-details.component";
 import { routing } from "./translation.routing";
 import { TranslationComponent } from "./translation.component";
-import { RowColorDirective } from '../shared/directives/rowColor.directive';
 
 @NgModule({
-	declarations: [TranslationComponent, TranslationsListComponent, TranslationDetailsComponent, RowColorDirective],
+	declarations: [TranslationComponent, TranslationsListComponent, TranslationDetailsComponent],
     imports: [SharedModule, routing],
 	providers: [BrailleTranslationsService],
 })

@@ -1,4 +1,7 @@
-﻿<table>
+﻿<div id="languageSelect">
+	<braille-dropdown [initialItems]="supportedLanguages" [placeholder]="'TranslatorSelectLanguages'" [multipleSelect]="false" (checked)="setLanguageForTranslations(list.checkedFields)" #list></braille-dropdown>
+</div>
+<table>
 	<thead>
 		<tr>
 			<td width="5%">&#8470;</td>
@@ -9,7 +12,7 @@
 	<tbody>
 		<tr *ngFor="let translation of translations; let rowNumber = index" rowColor [rowId]="rowNumber">
 			<td width="5%">{{translation.id}}.</td>
-			<td width="85%"><a [routerLink]="translation.id">{{getBrailleTranslation(translation, 'en')}}</a></td>
+			<td width="85%"><a [routerLink]="translation.id">{{getBrailleTranslation(translation, currentLanguage)}}</a></td>
 			<td width="10%">{{translation.viewCount}}</td>
 		</tr>
 	</tbody>

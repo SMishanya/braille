@@ -23,7 +23,7 @@ export class DropdownComponent implements OnInit {
 	private isCollapsed: boolean = true;
 	private resultView: string = '';
 
-	private checkedFields: any[] = [];
+	private checkedFields: number[] = [];
 	private items: DropdownRow<number, string>[] = []
 
 	constructor(public translationsService: TranslationsService) { }
@@ -46,6 +46,7 @@ export class DropdownComponent implements OnInit {
 		}
 		else {
 			this.items.forEach(x => { if (x.item.key != id) x.checked = false; });
+			this.checkedFields = [id];
 		}
 		this.checked.emit(true);
 		this.getResultView();

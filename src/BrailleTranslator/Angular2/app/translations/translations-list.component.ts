@@ -2,20 +2,28 @@ import { Component } from "@angular/core";
 import { TranslationModel } from "./translation.model";
 import { BrailleTranslationsService } from "./brailleTranslations.service";
 import { TranslationsService } from '../shared/services/translations.service';
+import { LanguagesService } from '../shared/services/languages.service';
 import { RowColorDirective } from '../shared/directives/rowColor.directive';
+import { KeyValuePair } from '../shared/models/KeyValuePair';
 
 @Component({
 	templateUrl: `./app/translations/translations-list.component.html`,
 	styleUrls: [`./app/translations/translations-list.component.css`]
 })
 export class TranslationsListComponent {
+	private supportedLanguages: KeyValuePair<number, string>[];
+	private currentLanguage: string = 'en';
 
-	constructor(private brailleTranslationsService: BrailleTranslationsService, private translationsService: TranslationsService) {
+	constructor(
+		private brailleTranslationsService: BrailleTranslationsService,
+		private languagesService: LanguagesService,
+		private translationsService: TranslationsService) {
 	}
 
 	translations: TranslationModel[];
 
 	ngOnInit() {
+		this.supportedLanguages = this.languagesService.supportedLanguages;
 		this.brailleTranslationsService
 			.getTranslations()
 			.subscribe(data => {
@@ -33,5 +41,10 @@ export class TranslationsListComponent {
 			previousElement = element.join('').toString();
 		});
 		return result;
+	}
+
+	setLanguageForTranslations(language: number[]) {
+		let index = this.supportedLanguages.map(x => x.key).indexOf(language[0]);
+		this.currentLanguage = this.supportedLanguages[index].value;
 	}
 }
