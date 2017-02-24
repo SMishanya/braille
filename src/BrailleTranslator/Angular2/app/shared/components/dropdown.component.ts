@@ -9,9 +9,16 @@ import { TranslationsService } from '../services/translations.service';
 	styleUrls: ['./app/shared/components/dropdown.component.css']
 })
 export class DropdownComponent implements OnInit {
+	@Input() multipleSelect: boolean = true;
+
+	// Use it to init dropdown items
 	@Input() initialItems: KeyValuePair<any, any>[] = [];
-	@Output() checked = new EventEmitter<boolean>();
+
+	// Use this to init dropdown placeholder
 	@Input() placeholder: string;
+
+	// Use it to make some actions when user clicked on dropdown item
+	@Output() checked = new EventEmitter<boolean>();
 
 	private isCollapsed: boolean = true;
 	private resultView: string = '';
@@ -24,25 +31,29 @@ export class DropdownComponent implements OnInit {
 	getResultView() {
 		let listToJoin: string[] = [];
 		this.items.forEach(y => { if (y.checked) listToJoin.push(y.item.value) });
-		this.resultView = listToJoin.map(l => this.translationsService.getLanguageName(l)).join(', '); 
+		this.resultView = listToJoin.map(l => this.translationsService.getLanguageName(l)).join(', ');
 	}
 
 	itemChecked(id: number) {
 		let index = this.items.map(x => x.item.key).indexOf(id);
 		this.items[index].checked = !this.items[index].checked;
-
-		let item = this.checkedFields.indexOf(id);
-		if (item == -1)
-			this.checkedFields.push(id);
-		else
-			this.checkedFields.splice(item, 1);
+		if (this.multipleSelect) {
+			let item = this.checkedFields.indexOf(id);
+			if (item == -1)
+				this.checkedFields.push(id);
+			else
+				this.checkedFields.splice(item, 1);
+		}
+		else {
+			this.items.forEach(x => { if (x.item.key != id) x.checked = false; });
+		}
 		this.checked.emit(true);
 		this.getResultView();
 	}
 
 	ngOnInit() {
 		console.log(this.placeholder);
-		for(let item of this.initialItems)
+		for (let item of this.initialItems)
 			this.items.push(new DropdownRow(item.key, item.value));
 	}
 };

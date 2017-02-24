@@ -49,6 +49,10 @@
 	border-right: 1px solid gray;
 	margin-top: -1px;
 	border-radius: 0 0 3px 3px;
+	position: fixed;
+	background: white;
+	width: 200px;
+	z-index: 9999;
 }
 
 .listItem {
@@ -57,9 +61,9 @@
 	cursor: pointer;
 }
 
-	.listItem:hover {
-		background-color: #f5f5f5;
-	}
+.listItem:hover {
+	background-color: #f5f5f5;
+}
 
 .checkbox {
 	width: 20px;
