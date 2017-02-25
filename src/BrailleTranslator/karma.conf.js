@@ -46,7 +46,7 @@ module.exports = function (config) {
             //{pattern: 'wwwroot/app/**/*.css', included: false, watched: true},
 
             // paths to support debugging with source maps in dev tools
-            {pattern: 'Angular2/app/**/*.ts', included: false, watched: false},
+            {pattern: 'Web/app/**/*.ts', included: false, watched: false},
 
             ////images
             //{pattern: 'wwwroot/app/**/*.png', included: false, watched: false},

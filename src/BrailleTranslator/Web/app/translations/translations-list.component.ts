@@ -23,15 +23,9 @@ export class TranslationsListComponent {
 	translations: TranslationModel[];
 
 	ngOnInit() {
-		this.supportedLanguages = this.languagesService.supportedLanguages;
-		this.brailleTranslationsService
-			.getTranslations()
-			.subscribe(data => {
-				this.translations = data.json();
-				console.log(data.json());
-				console.log(this.translations);
-			});
+		this.getTranslationItems();
 	}
+
 
 	getBrailleTranslation(translation: TranslationModel, lang: string): string {
 		let result: string = '';
@@ -46,5 +40,18 @@ export class TranslationsListComponent {
 	setLanguageForTranslations(language: number[]) {
 		let index = this.supportedLanguages.map(x => x.key).indexOf(language[0]);
 		this.currentLanguage = this.supportedLanguages[index].value;
+		this.getTranslationItems();
+	}
+
+	getTranslationItems() {
+		this.supportedLanguages = this.languagesService.supportedLanguages;
+		let index = this.supportedLanguages.map(x => x.value).indexOf(this.currentLanguage);
+		this.brailleTranslationsService
+			.getTranslations(this.supportedLanguages[index].key)
+			.subscribe(data => {
+				this.translations = data.json();
+				console.log(data.json());
+				console.log(this.translations);
+			});
 	}
 }

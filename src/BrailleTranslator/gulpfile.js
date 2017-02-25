@@ -7,10 +7,10 @@ var tslint      = require("gulp-tslint");
 var del         = require('del');
 var Builder     = require('systemjs-builder');
 
-var scriptsPath = "Angular2/**/**.ts";
-var cssPath = "Angular2/**/**.css";
-var imagesPath = "Angular2/**/**.{jpg,gif,png,svg}";
-var templatesPath = "Angular2/**/**.html";
+var scriptsPath = "Web/**/**.ts";
+var cssPath = "Web/**/**.css";
+var imagesPath = "Web/**/**.{jpg,gif,png,svg}";
+var templatesPath = "Web/**/**.html";
 var destPath = "wwwroot/";
 
 gulp.task('clean', function () {
@@ -62,14 +62,14 @@ gulp.task("templates", function () {
 });
 
 gulp.task("fonts", function () {
-    gulp.src("Angular2/app/shared/styles/fonts/*")
+    gulp.src("Web/app/shared/styles/fonts/*")
         .pipe(gulp.dest(destPath + "app/shared/styles/fonts/"));
 });
 
 gulp.task("static files", function () {
-    gulp.src("Angular2/app/systemjs.config.js")
+    gulp.src("Web/app/systemjs.config.js")
         .pipe(gulp.dest(destPath + "app/"));
-    gulp.src("Angular2/app/index.html")
+    gulp.src("Web/app/index.html")
         .pipe(gulp.dest(destPath + "app/"));
 });
 
@@ -132,8 +132,8 @@ gulp.task("default", function () {
 
 	
 
-    gulp.src("./Angular2/styles/*")
+    gulp.src("./Web/styles/*")
         .pipe(gulp.dest(destPath + "css/"));
-    gulp.src("./Angular2/js/*")
+    gulp.src("./Web/js/*")
         .pipe(gulp.dest(destPath + "js/"));
 });

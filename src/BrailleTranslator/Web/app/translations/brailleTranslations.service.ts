@@ -10,8 +10,8 @@ export class BrailleTranslationsService {
 
 	translations: TranslationModel[];
 
-	getTranslations() {
-		return this.http.get(`/api/translations`);
+	getTranslations(languageId: number) {
+		return this.http.get(`/api/translations?languageId=` + languageId);
 	}
 
 	getTranslation(id: number) {
