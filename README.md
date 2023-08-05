@@ -1,3 +1,4 @@
 # Braille
 
-Translator from braille to other languages
+Translator from braille to other languages.
+Testing CodeCov!
